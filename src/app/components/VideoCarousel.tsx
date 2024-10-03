@@ -103,7 +103,7 @@ export default function Carousel({ videos }: { videos: CarouselItem[] }) {
       tabIndex={0}
       onKeyDown={handleKeyDown}
       aria-label="Video carousel"
-      className="bg-cozey-Fog-Balanced w-full mx-auto flex flex-col gap-4 pt-8 pl-4 pb-10 lg:pl-20 lg:pt-10 lg:pb-20"
+      className="bg-cozey-Fog-Balanced w-full mx-auto flex flex-col gap-4 pt-8 pl-4 pb-10 lg:pl-20 lg:pt-10 lg:pb-20 focus:border-0"
     >
       <div className="flex flex-row items-center justify-between py-3 lg:py-9">
         <h2 className="text-base lg:text-lg text-cozey-Midnight-Balanced font-semibold">

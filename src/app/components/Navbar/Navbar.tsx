@@ -30,20 +30,20 @@ export default function Navbar() {
             Our Locations
           </a>
 
-          <div className="flex flex-row gap-1.5">
+          <div className="flex flex-row items-center gap-1.5">
             <span>EN</span>
             <span className="flex flex-row gap-0.5">
               <Image
-                src="/USA.svg"
+                src="/usa.svg"
                 className="rounded-full"
                 alt="usa"
                 width={16}
                 height={16}
               />
               <Image
-                src="/Chevron-down.svg"
+                src="/chevron-down.svg"
                 className="rounded-full"
-                alt="canada"
+                alt="Select Menu"
                 width={12}
                 height={12}
               />

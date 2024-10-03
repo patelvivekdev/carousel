@@ -24,7 +24,7 @@ export default function MobileNav() {
           <p>|</p>
           <p>Fast & Free Shipping</p>
         </div>
-        <div className="flex flex-row text-xss gap-1.5">
+        <div className="flex flex-row text-xss items-center gap-1.5">
           <span>EN</span>
           <span className="flex flex-row gap-0.5">
             <Image
@@ -35,7 +35,7 @@ export default function MobileNav() {
               height={16}
             />
             <Image
-              src="/Chevron-down.svg"
+              src="/chevron-down.svg"
               className="rounded-full"
               alt="Select"
               width={12}
