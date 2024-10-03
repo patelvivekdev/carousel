@@ -1,4 +1,4 @@
-"use client";
+'use client';
 
 import React, {
   useState,
@@ -6,9 +6,9 @@ import React, {
   useEffect,
   useMemo,
   useCallback,
-} from "react";
-import Image from "next/image";
-import { CarouselItem } from "../page";
+} from 'react';
+import Image from 'next/image';
+import { CarouselItem } from '../page';
 
 export default function Carousel({ videos }: { videos: CarouselItem[] }) {
   // State
@@ -42,7 +42,7 @@ export default function Carousel({ videos }: { videos: CarouselItem[] }) {
 
   const handlePrev = useCallback(() => {
     setStartIndex(
-      (prevIndex) => (prevIndex - 1 + videos.length) % videos.length
+      (prevIndex) => (prevIndex - 1 + videos.length) % videos.length,
     );
   }, [videos.length]);
 
@@ -63,23 +63,23 @@ export default function Carousel({ videos }: { videos: CarouselItem[] }) {
   const handleKeyDown = useCallback(
     (event: React.KeyboardEvent) => {
       switch (event.key) {
-        case "ArrowLeft":
+        case 'ArrowLeft':
           handlePrev();
           break;
-        case "ArrowRight":
+        case 'ArrowRight':
           handleNext();
           break;
-        case " ":
+        case ' ':
           event.preventDefault();
           togglePlayPause();
           break;
-        case "m":
-        case "M":
+        case 'm':
+        case 'M':
           toggleMute();
           break;
       }
     },
-    [handlePrev, handleNext, togglePlayPause, toggleMute]
+    [handlePrev, handleNext, togglePlayPause, toggleMute],
   );
 
   useEffect(() => {
@@ -102,84 +102,84 @@ export default function Carousel({ videos }: { videos: CarouselItem[] }) {
       ref={containerRef}
       tabIndex={0}
       onKeyDown={handleKeyDown}
-      aria-label="Video carousel"
-      className="bg-cozey-Fog-Balanced w-full mx-auto flex flex-col gap-4 pt-8 pl-4 pb-10 lg:pl-20 lg:pt-10 lg:pb-20 focus:border-0"
+      aria-label='Video carousel'
+      className='mx-auto flex w-full flex-col gap-4 bg-cozey-Fog-Balanced pb-10 pl-4 pt-8 focus:border-0 lg:pb-20 lg:pl-20 lg:pt-10'
     >
-      <div className="flex flex-row items-center justify-between py-3 lg:py-9">
-        <h2 className="text-base lg:text-lg text-cozey-Midnight-Balanced font-semibold">
+      <div className='flex flex-row items-center justify-between py-3 lg:py-9'>
+        <h2 className='text-base font-semibold text-cozey-Midnight-Balanced lg:text-lg'>
           A day in the life
         </h2>
-        <div className="flex flex-row gap-5 pr-20">
+        <div className='flex flex-row gap-5 pr-20'>
           <button
             onClick={handlePrev}
-            className="w-12 h-12 bg-white bg-opacity-50 rounded-full flex items-center justify-center focus:outline-none focus:ring-2 focus:ring-blue-300"
-            aria-label="Previous video"
+            className='flex h-12 w-12 items-center justify-center rounded-full bg-white bg-opacity-50 focus:outline-none focus:ring-2 focus:ring-blue-300'
+            aria-label='Previous video'
           >
             <Image
-              src="/chevron-left.svg"
-              alt="Previous video"
+              src='/chevron-left.svg'
+              alt='Previous video'
               width={24}
               height={24}
             />
           </button>
           <button
             onClick={handleNext}
-            className="w-12 h-12 bg-white bg-opacity-50 rounded-full flex items-center justify-center focus:outline-none focus:ring-2 focus:ring-blue-300"
-            aria-label="Next video"
+            className='flex h-12 w-12 items-center justify-center rounded-full bg-white bg-opacity-50 focus:outline-none focus:ring-2 focus:ring-blue-300'
+            aria-label='Next video'
           >
             <Image
-              src="/chevron-right.svg"
-              alt="Next video"
+              src='/chevron-right.svg'
+              alt='Next video'
               width={24}
               height={24}
             />
           </button>
         </div>
       </div>
-      <div className="relative overflow-hidden">
-        <div className="flex flex-row gap-5 transition-transform duration-300 ease-in-out">
+      <div className='relative overflow-hidden'>
+        <div className='flex flex-row gap-5 transition-transform duration-300 ease-in-out'>
           {getVisibleVideos.map((video, index) => (
-            <div key={video.id} className="flex">
-              <div className="relative">
+            <div key={video.id} className='flex'>
+              <div className='relative'>
                 <div
-                  className={`relative w-[300px] h-[500px]  rounded-lg overflow-hidden  ${
+                  className={`relative h-[500px] w-[300px] overflow-hidden rounded-lg ${
                     index === 0
-                      ? "border-cozey-Midnight-Bold border-4 border-solid"
-                      : ""
-                  }  ${index === 0 ? "shadow-xl" : "shadow-lg"}`}
+                      ? 'border-4 border-solid border-cozey-Midnight-Bold'
+                      : ''
+                  } ${index === 0 ? 'shadow-xl' : 'shadow-lg'}`}
                 >
                   <video
                     ref={(el) => {
                       videoRefs.current[index] = el;
                     }}
                     src={video.src}
-                    className="w-full h-full object-cover shadow-lg"
+                    className='h-full w-full object-cover shadow-lg'
                     loop
                     muted={isMuted}
                     playsInline
                   />
                   {index === 0 && (
-                    <div className="absolute bottom-4 right-4 flex flex-col space-y-2">
+                    <div className='absolute bottom-4 right-4 flex flex-col space-y-2'>
                       <button
                         onClick={toggleMute}
-                        className="w-8 h-8 bg-white bg-opacity-50 rounded-full flex items-center justify-center focus:outline-none focus:ring-2 focus:ring-blue-300"
-                        aria-label={isMuted ? "Unmute" : "Mute"}
+                        className='flex h-8 w-8 items-center justify-center rounded-full bg-white bg-opacity-50 focus:outline-none focus:ring-2 focus:ring-blue-300'
+                        aria-label={isMuted ? 'Unmute' : 'Mute'}
                       >
                         <Image
-                          src={isMuted ? "/sound-off.svg" : "/sound-on.svg"}
-                          alt={isMuted ? "Unmute" : "Mute"}
+                          src={isMuted ? '/sound-off.svg' : '/sound-on.svg'}
+                          alt={isMuted ? 'Unmute' : 'Mute'}
                           width={32}
                           height={32}
                         />
                       </button>
                       <button
                         onClick={togglePlayPause}
-                        className="w-8 h-8 bg-white bg-opacity-50 rounded-full flex items-center justify-center focus:outline-none focus:ring-2 focus:ring-blue-300"
-                        aria-label={isPlaying ? "Pause" : "Play"}
+                        className='flex h-8 w-8 items-center justify-center rounded-full bg-white bg-opacity-50 focus:outline-none focus:ring-2 focus:ring-blue-300'
+                        aria-label={isPlaying ? 'Pause' : 'Play'}
                       >
                         <Image
-                          src={isPlaying ? "/pause.svg" : "/play.svg"}
-                          alt={isPlaying ? "Pause" : "Play"}
+                          src={isPlaying ? '/pause.svg' : '/play.svg'}
+                          alt={isPlaying ? 'Pause' : 'Play'}
                           width={32}
                           height={32}
                         />
@@ -188,9 +188,7 @@ export default function Carousel({ videos }: { videos: CarouselItem[] }) {
                   )}
                 </div>
                 <p
-                  className={`mt-2 text-left text-gray-600 text-sm font-medium truncate
-                  ${index === 0 ? "font-bold" : "font-normal"}
-                  `}
+                  className={`mt-2 truncate text-left text-sm font-medium text-gray-600 ${index === 0 ? 'font-bold' : 'font-normal'} `}
                 >
                   {video.title}
                 </p>

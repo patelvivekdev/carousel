@@ -1,11 +1,11 @@
 ## Carousel
 
 ### Libraries
+
 - [react](https://reactjs.org/)
 - [Next.js](https://nextjs.org/) App Router
 - Used tailwindcss for styling
 - SVGs from Lucide Icons
-
 
 ## Design
 
