@@ -4,7 +4,7 @@
 
 - [react](https://reactjs.org/)
 - [Next.js](https://nextjs.org/) App Router
-- Used tailwindcss for styling
+- Used tailwindcss for styling.
 - SVGs from Lucide Icons
 
 ## Design
@@ -26,3 +26,7 @@
 ## Additional Features
 
 - Play/pause, mute/unmute, next, previous, and change carousel with keyboard navigation
+
+## Note
+
+- I have not included one video as it's size is more than what github is allowed.
